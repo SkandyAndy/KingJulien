@@ -1,0 +1,113 @@
+:root {
+  --bg-color: #1e1e1e;
+  --panel-bg: #2a2a2a;
+  --panel-border: #444;
+  --text-main: #e0e0e0;
+  
+  --btn-red: #d32f2f;
+  --btn-red-hover: #b71c1c;
+  --btn-red-shadow: #7f0000;
+  
+  --btn-green: #388e3c;
+  --btn-active: #4caf50;
+  --accent-orange: #ff9800;
+  
+  --gauge-safe: #4caf50;
+  --gauge-warn: #ffeb3b;
+  --gauge-danger: #f44336;
+  
+  --font-industrial: 'Courier New', Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  background-image: 
+    linear-gradient(45deg, #181818 25%, transparent 25%, transparent 75%, #181818 75%, #181818), 
+    linear-gradient(45deg, #181818 25%, transparent 25%, transparent 75%, #181818 75%, #181818);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  color: var(--text-main);
+  font-family: var(--font-industrial);
+  user-select: none; /* App feel */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Base styles for industrial panels */
+.panel {
+  background: var(--panel-bg);
+  border: 4px solid var(--panel-border);
+  border-radius: 8px;
+  box-shadow: 
+    inset 0 0 10px rgba(0,0,0,0.8),
+    0 4px 6px rgba(0,0,0,0.5);
+  padding: 16px;
+  position: relative;
+  margin: 16px;
+}
+
+.screw {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #777;
+  box-shadow: inset -1px -1px 3px rgba(0,0,0,0.5), inset 1px 1px 3px rgba(255,255,255,0.4);
+  position: absolute;
+}
+.screw::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  width: 8px;
+  height: 2px;
+  background: #333;
+  transform: rotate(45deg);
+}
+
+.screw-tl { top: 8px; left: 8px; }
+.screw-tr { top: 8px; right: 8px; transform: rotate(90deg); }
+.screw-bl { bottom: 8px; left: 8px; transform: rotate(45deg); }
+.screw-br { bottom: 8px; right: 8px; transform: rotate(135deg); }
+
+/* Buttons */
+button {
+  font-family: var(--font-industrial);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--panel-bg);
+  color: var(--text-main);
+  border: 2px solid #555;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #111;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #111;
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
